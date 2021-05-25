@@ -1,0 +1,10 @@
+@import '../../style/mixins.scss';
+
+.header {
+	@include adaptiv-property('padding-left', 170, 30);
+	@include adaptiv-property('padding-right', 170, 30);
+	@include adaptiv-property('padding-top', 52, 20);
+	@media(max-width: 350px){
+		padding-right: 0;
+	}
+}

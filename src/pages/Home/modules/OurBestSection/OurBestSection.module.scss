@@ -1,7 +1,7 @@
-@import '../../style/mixins.scss';
+@import '../../../../style/mixins.scss';
 
 .wrapper {
-	background: center / cover no-repeat url('../../assets/img/home/our_best_bg.jpg');
+	background: center / cover no-repeat url('../../../../assets/img/home/our_best_bg.jpg');
 	@include adaptiv-property('padding-top', 80, 20);
 	@include adaptiv-property('padding-bottom', 110, 30);
 	.card_wrapper {

@@ -1,6 +1,6 @@
-import { CardCoffee } from '../../components';
+import { CardCoffee } from '../../../../components';
 import {wrapper, card_wrapper, card} from './OurBestSection.module.scss';
-import twoImage from '../../assets/img/home/2.jpg';
+import twoImage from '../../../../assets/img/home/2.jpg';
 
 const OurBestSection = () => {
 	return (
@@ -11,7 +11,6 @@ const OurBestSection = () => {
 				<div className={card}><CardCoffee/></div>
 				<div className={card}><CardCoffee img={twoImage}/></div>
 			</div>
-			
 		</section>
 	)
 }

@@ -1,4 +1,4 @@
-import { Divider } from '../../components';
+import { Divider } from '../../../../components';
 import {wrapper, container, divider, text} from './AboutUsSection.module.scss';
 
 const AboutUsSection = () => {

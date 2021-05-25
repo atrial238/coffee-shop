@@ -1,18 +1,12 @@
-@import '../../style/mixins.scss';
+@import '../../../../style/mixins.scss';
 
 .wrapper {
-	background: center / cover no-repeat url('../../assets/img/home/home_bg.jpg');
+	background: center / cover no-repeat url('../../../../assets/img/home/home_bg.jpg');
 	color: white;
 	font-weight: bold;
 	@include adaptiv-property('padding-bottom', 200, 60);
-	.header {
-		@include adaptiv-property('padding-left', 170, 30);
-		@include adaptiv-property('padding-right', 170, 30);
-		@include adaptiv-property('padding-top', 52, 20);
-		@include adaptiv-property('margin-bottom', 110, 40);
-		@media(max-width: 350px){
-			padding-right: 0;
-		}
+	.divider {
+		@include adaptiv-property('margin-top', 110, 40);
 	}
 	.discription{
 		@include adaptiv-property('font-size', 24, 16);
