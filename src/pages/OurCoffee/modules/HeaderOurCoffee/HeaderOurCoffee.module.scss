@@ -1,0 +1,9 @@
+@import '../../../../style/mixins.scss';
+
+.wrapper {
+	background: center / cover no-repeat url('../../../../assets/img/our_coffee/bg.jpg') rgb(110, 110, 110);
+	@include adaptiv-property('padding-bottom', 70, 25);
+	.title_style {
+		@include adaptiv-property('margin-top', 60, 15);
+	}
+}

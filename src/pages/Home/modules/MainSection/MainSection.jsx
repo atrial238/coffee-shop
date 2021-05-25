@@ -1,4 +1,4 @@
-import {wrapper, discription, wrapper_button, divider} from './MainSection.module.scss';
+import {wrapper, discription, wrapper_button, title_style} from './MainSection.module.scss';
 import {Button, Divider} from '../../../../components/index';
 import { Header } from '../../../../modules';
 
@@ -6,7 +6,8 @@ const MainSection = () => {
 	return (
 		<section className={wrapper}>
 			<Header />
-			<div className={divider}><Divider/></div>
+			<h1 className={`title ${title_style}`}>Everything You Love About Coffee</h1>
+			<Divider/>
 			<div className={discription}>
 				We makes every day full of energy and taste Want to try our beans?
 			</div>

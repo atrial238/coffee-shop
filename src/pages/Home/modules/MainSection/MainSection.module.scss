@@ -1,11 +1,11 @@
 @import '../../../../style/mixins.scss';
 
 .wrapper {
-	background: center / cover no-repeat url('../../../../assets/img/home/home_bg.jpg');
+	background: center / cover no-repeat url('../../../../assets/img/home/home_bg.jpg') rgb(110, 110, 110);
 	color: white;
 	font-weight: bold;
 	@include adaptiv-property('padding-bottom', 200, 60);
-	.divider {
+	.title_style {
 		@include adaptiv-property('margin-top', 110, 40);
 	}
 	.discription{
