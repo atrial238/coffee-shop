@@ -1,0 +1,69 @@
+@import '../../../../../style/mixins.scss';
+
+.wrapper {
+	@include adaptiv-property('font-size', 14, 12);
+	@include adaptiv-property('width', 700, 300);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	@include adaptiv-property('margin-bottom', 60, 20);
+	@media (max-width: 1300px){
+		flex-direction: column;
+	}
+	.looking_for {
+		label {
+			@include adaptiv-property('margin-right', 20, 10);
+		}
+		input {
+			padding: 0 10px;
+			@include adaptiv-property('padding-top', 10, 6);
+			@include adaptiv-property('padding-bottom', 10, 6);
+			transition: all .4s;
+			&::placeholder {
+				color: rgba(0, 0, 0, 0.5);
+				text-align: center;
+			}
+			background: #FFFFFF;
+			box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+			@include adaptiv-property('border-radius', 4, 2);
+			&:focus {
+				box-shadow: 0 0 3px #f0c884;
+			}
+		}
+		@media (max-width: 1300px){
+			@include adaptiv-property('margin-bottom', 25, 15);
+		}
+	}
+	.filter {
+		span {
+			@include adaptiv-property('margin-right', 35, 18);
+		}
+		button {
+			background: #FFFFFF;
+			box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+			margin-right: 5px;
+			padding: 7px 20px;
+			transition: all .4s;
+			@include adaptiv-property('padding-top', 7, 5);
+			@include adaptiv-property('padding-bottom', 7, 5);
+			@include adaptiv-property('padding-left', 20, 12);
+			@include adaptiv-property('padding-right', 20, 12);
+			@media (min-width: 1440px) {
+				@include adaptiv-property('margin-right', 5, 1);
+			}
+			&:first-of-type {
+				border-radius: 4px 0px 0px 4px;
+			}
+			&:last-child {
+				border-radius: 0px 4px 4px 0px;
+			}
+			&:hover, .active {
+				box-shadow: 0px 0px 3px #f0c884;
+				transform: translate(1px, 2px);
+
+			}
+		}
+	}
+	
+}
