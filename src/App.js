@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import { Home, OurCoffee } from './pages';
+import { AboutCoffee, Home, OurCoffee } from './pages';
 import './App.scss';
 
 function App() {
@@ -10,6 +10,8 @@ function App() {
 		<div className="App">
 			<Route exact path={['/', '/home']} component={Home}/>
 			<Route exact path='/our_coffee' component={OurCoffee}/>
+			<Route exact path='/our_coffee/:item' component={AboutCoffee}/>
+
 		</div>
 	 </Router>
   );
