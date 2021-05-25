@@ -1,0 +1,18 @@
+@import '../../style/mixins.scss';
+
+.wrapper {
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	border-radius: 3px;
+	border: 1px solid #FFFFFF;
+	color: white;
+	@include adaptiv-property('padding-bottom', 7, 5);
+	@include adaptiv-property('padding-top', 7, 5);
+	@include adaptiv-property('padding-left', 42, 20);
+	@include adaptiv-property('padding-right', 42, 20);
+	transition: all .4s;
+	&:hover {
+		background: #f3ca83;
+	}
+}
