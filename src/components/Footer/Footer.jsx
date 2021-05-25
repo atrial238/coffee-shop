@@ -1,5 +1,5 @@
 import {wrapper, divider, navigator} from './Footer.module.scss';
-import {Divider, Navigator} from '../../components';
+import {Divider, Navigator} from '..';
 
 const Footer = () => {
 	return (

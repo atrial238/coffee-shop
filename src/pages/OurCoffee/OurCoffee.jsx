@@ -1,4 +1,4 @@
-import { AboutBeans, HeaderOurCoffee } from './modules';
+import { AboutBeans, HeaderOurCoffee } from './components';
 import {} from './OurCoffee.module.scss';
 
 const OurCoffee = () => {

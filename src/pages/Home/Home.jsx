@@ -1,6 +1,6 @@
 
-import { Footer,} from '../../modules';
-import {AboutUsSection, MainSection, OurBestSection} from './modules'
+import { Footer} from '../../components';
+import {AboutUsSection, MainSection, OurBestSection} from './components'
 const Home = () => {
 	return (
 		<>

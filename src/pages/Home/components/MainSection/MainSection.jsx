@@ -1,6 +1,6 @@
 import {wrapper, discription, wrapper_button, title_style} from './MainSection.module.scss';
 import {Button, Divider} from '../../../../components/index';
-import { Header } from '../../../../modules';
+import { Header } from '../../../../components';
 
 const MainSection = () => {
 	return (

@@ -1,5 +1,5 @@
 import {wrapper, title_style} from './HeaderOurCoffee.module.scss';
-import {Header} from '../../../../modules';
+import {Header} from '../../../../components';
 
 const HeaderOurCoffee = () => {
 	return (

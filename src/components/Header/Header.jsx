@@ -1,4 +1,4 @@
-import { Navigator } from '../../components';
+import { Navigator } from '..';
 import {header} from './Header.module.scss';
 
 const Header = () => {
