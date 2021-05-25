@@ -6,13 +6,11 @@
 	@include adaptiv-property('padding-bottom', 30, 10);
 	@include adaptiv-property('width', 856, 300);
 	margin: 0 auto;
-	
 	.container {
 		display: flex;
 		justify-content: space-between;
 		@media (max-width: 600px) {
 			flex-direction: column;
-			
 		}
 		.image {
 			flex: 0 1 45.8%;

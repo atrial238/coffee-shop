@@ -1,4 +1,4 @@
-import { CardCoffee } from '../../../../../components';
+import { CardCoffee } from '../../components';
 import {wrapper} from './GridContainer.module.scss';
 
 const GridContainer = () => {

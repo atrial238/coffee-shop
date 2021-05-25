@@ -4,7 +4,11 @@
 	background: center / cover no-repeat url('../../../../assets/img/home/home_bg.jpg') rgb(110, 110, 110);
 	color: white;
 	font-weight: bold;
-	@include adaptiv-property('padding-bottom', 200, 60);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	
+	// @include adaptiv-property('padding-bottom', 200, 60);
 	.title_style {
 		@include adaptiv-property('margin-top', 110, 40);
 	}
@@ -19,6 +23,7 @@
 		
 	}
 	.wrapper_button {
+		flex: 1 1 auto;
 		display: flex;
 		justify-content: center;
 		align-items: center;

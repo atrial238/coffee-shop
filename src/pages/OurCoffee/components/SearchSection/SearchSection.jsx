@@ -1,4 +1,5 @@
-import GridContainer from './GridContainer/GridContainer';
+
+import {GridContainer} from '../../../../components';
 import SearchPanel from './SearchPanel/SearchPanel';
 import {wrapper_search_panel, wrapper, wrapper_grid} from './SearchSection.module.scss';
 

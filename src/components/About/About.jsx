@@ -1,7 +1,7 @@
-import {wrapper, container, divider, image, text_style, discription, divider_beans} from './AboutBeans.module.scss';
-import { Divider } from '../../../../components';
+import {wrapper, container, divider, image, text_style, discription, divider_beans} from './About.module.scss';
+import Divider  from '../Divider/Divider';
 
-const AboutBeans = () => {
+const About = () => {
 	return (
 		<section className={wrapper}>
 			<div className={container}>
@@ -30,4 +30,4 @@ const AboutBeans = () => {
 		</section>
 	)
 }
-export default AboutBeans;
+export default About;

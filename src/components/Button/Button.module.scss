@@ -12,6 +12,7 @@
 	@include adaptiv-property('padding-left', 42, 20);
 	@include adaptiv-property('padding-right', 42, 20);
 	transition: all .4s;
+	cursor: pointer;
 	&:hover {
 		background: #f3ca83;
 	}

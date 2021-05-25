@@ -1,4 +1,4 @@
-@import '../../../../style/mixins.scss';
+@import '../../style/mixins.scss';
 
 .wrapper {
 	@include adaptiv-property('padding-top', 70, 20);
@@ -9,7 +9,7 @@
 		margin: 0 auto;
 		.image {
 			flex: 0 1 38.5%;
-			background: center / cover no-repeat url('../../../../assets/img/our_coffee/1.jpg') rgb(172, 171, 171);
+			background: center / cover no-repeat url('../../assets/img/our_coffee/1.jpg') rgb(172, 171, 171);
 			@media (max-width: 1100px){
 				display: none;
 			}
