@@ -1,0 +1,34 @@
+@import '../../style/mixins.scss';
+
+.wrapper {
+	background: center / cover no-repeat url('../../assets/img/home/home_bg.jpg');
+	color: white;
+	font-weight: bold;
+	@include adaptiv-property('padding-bottom', 200, 60);
+	.header {
+		@include adaptiv-property('padding-left', 170, 30);
+		@include adaptiv-property('padding-right', 170, 30);
+		@include adaptiv-property('padding-top', 52, 20);
+		@include adaptiv-property('margin-bottom', 110, 40);
+		@media(max-width: 350px){
+			padding-right: 0;
+		}
+	}
+	.discription{
+		@include adaptiv-property('font-size', 24, 16);
+		@include adaptiv-property('line-height', 44, 25);
+		color: #FFFFFF;
+		@include adaptiv-property('width', 530, 300);
+		text-align: center;
+		margin: 0 auto;
+		@include adaptiv-property('margin-top', 32, 15);
+		
+	}
+	.wrapper_button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiv-property('margin-top', 15, 10);
+
+	}
+}

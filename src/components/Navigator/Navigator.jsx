@@ -8,7 +8,7 @@ const Navigator = ({color = 'white'}) => {
 
 	return(
 		<nav className={wrapper  + ' ' + (color === 'white' ? white : black)}>
-			<Link to='/home' className={location === '/home' ?  active : null}>Coffee house</Link>
+			<Link to='/home' className={location === '/home' || location === '/' ? active : null}>Coffee house</Link>
 			<Link to='/our_coffee'  className={location === '/our_coffee' ?  active : null} >Our coffee</Link>
 			<Link to='/your_pleasure'  className={location === '/your_pleasure' ?  active : null} >For your pleasure</Link>
 			<div className={img}><CoffeeBeansTwo/></div>

@@ -1,0 +1,25 @@
+@import '../../style/mixins.scss';
+
+.wrapper {
+	color: black;
+	@include adaptiv-property('padding-top', 80, 20);
+	@include adaptiv-property('padding-bottom', 100, 30);
+	.container {
+		@include adaptiv-property('width', 590, 300);
+		margin: 0 auto;
+		.divider {
+			@include adaptiv-property('margin-top', 12, 5);
+		}
+		.text {
+			font-size: 14px;
+			line-height: 20px;
+			@include adaptiv-property('margin-top', 40, 20);
+			p {
+				text-align: center;
+				&:first-child {
+					@include adaptiv-property('margin-bottom', 22, 12);
+				}
+			}
+		}
+	}
+}
