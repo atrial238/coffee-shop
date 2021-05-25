@@ -1,9 +1,11 @@
-import { AboutAsSection, MainSection } from '../../modules';
+
+import { AboutUsSection, MainSection, OurBestSection } from '../../modules';
 const Home = () => {
 	return (
 		<>
 			<MainSection />
-			<AboutAsSection/>
+			<AboutUsSection/>
+			<OurBestSection/>
 		</>
 	)
 }

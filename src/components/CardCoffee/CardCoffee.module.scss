@@ -1,0 +1,64 @@
+@import '../../style/mixins.scss';
+
+.wrapper {
+	background-color: white;
+	@include adaptiv-property('border-radius', 8, 4);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding-top: 29px;
+	color: black;
+	transition: all .4s;
+	@media (min-width: 1440px){
+		@include adaptiv-property('padding-top', 29, 10);
+	}
+	&.beige {
+		background: rgba(255, 255, 255, 0.65);
+	}
+	.image {
+		flex: 1 1 auto;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 5px;
+		@media (min-width: 1440px){
+			@include adaptiv-property('padding-top', 5, 1);
+		}
+		img {
+			 width: 70%;
+		}
+	}
+	.title_style, .cuntry_style, .price_style {
+		font-size: 14px;
+		line-height: 20px;
+		margin-bottom: 10px;
+		padding: 0 22px;
+		@media (min-width: 1440px) {
+			@include adaptiv-property('font-size', 14, 8);
+			@include adaptiv-property('line-height', 20, 12);
+			@include adaptiv-property('margin-bottom', 10, 5);
+			@include adaptiv-property('padding-left', 20, 7);
+			@include adaptiv-property('padding-right', 20, 7);
+		}
+	}
+	.title_style {
+		.coffee {
+			white-space: nowrap;
+		}
+	}
+	.cuntry_style, .price_style {
+		align-self: flex-end;
+	}
+	.price_style {
+		margin-bottom: 20px;
+		font-weight: 700;
+		@media (min-width: 1440px) {
+			@include adaptiv-property('margin-bottom', 20, 10);
+		}
+	}
+	&:hover {
+		box-shadow: 0 0 11px rgba(33,33,33, .2);
+	}
+}

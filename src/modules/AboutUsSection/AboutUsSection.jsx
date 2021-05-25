@@ -1,12 +1,12 @@
 import { Divider } from '../../components';
-import {wrapper, container, divider, text} from './AboutAsSection.module.scss';
+import {wrapper, container, divider, text} from './AboutUsSection.module.scss';
 
-const AboutAsSection = () => {
+const AboutUsSection = () => {
 
 	return (
-		<div className={wrapper}>
+		<section className={wrapper}>
 			<div className={container}>
-				<div className="subtitle">About Us</div>
+				<h2 className="subtitle">About Us</h2>
 				<div className={divider}><Divider color='black' /></div>
 				<div className={text}>
 					<p>
@@ -25,7 +25,7 @@ const AboutAsSection = () => {
 					</p>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
-export default AboutAsSection;
+export default AboutUsSection;

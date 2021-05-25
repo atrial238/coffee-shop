@@ -2,3 +2,11 @@
 	$addSize: $pcSize - $mobSize;
 	#{$property}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / 1120))
 }
+
+@mixin adaptiv-property-media($property, $pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	#{$property}: $pcSize + px;
+	@media (min-width: 1440px) {
+		#{$property}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / 1120));
+	}
+}

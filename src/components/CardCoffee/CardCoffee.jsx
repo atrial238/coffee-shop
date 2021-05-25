@@ -1,0 +1,20 @@
+
+import {wrapper, image, title_style, price_style ,country_style, beige, coffee} from './CardCoffee.module.scss';
+import coffeeImg from '../../assets/img/home/1.jpg';
+import { Link } from 'react-router-dom';
+
+const CardCoffee = ({bgColor = 'beige', img = coffeeImg, nameCoffee='Solimo', weight = 1, country = null, price = '10.73$'}) => {
+	
+	return (
+		<Link to={`/our_coffee/${nameCoffee.toLowerCase()}`} className={wrapper + ' ' + (bgColor === 'beige' ? beige : null)}>
+			<div className={image}>
+				<img src={img} alt="coffee" />
+			</div>
+			<div className={title_style}><span>{nameCoffee}</span><span className={coffee}>{` Coffee Beans ${weight} kg`}</span></div>
+			{country && <div className={country_style}>{country}</div>}
+			<div className={price_style}>{price}</div>
+		</Link>
+	)
+}
+
+export default CardCoffee;
