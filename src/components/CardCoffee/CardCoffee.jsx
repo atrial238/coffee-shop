@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 import {wrapper, image, title_style, price_style ,country_style, beige, coffee} from './CardCoffee.module.scss';
 import coffeeImg from '../../assets/img/home/1.jpg';
 import { Link } from 'react-router-dom';
@@ -18,3 +18,12 @@ const CardCoffee = ({bgColor = 'beige', img = coffeeImg, nameCoffee='Solimo', we
 }
 
 export default CardCoffee;
+
+CardCoffee.propTypes = {
+	bgColor: PropTypes.string, 
+	img: PropTypes.string, 
+	nameCoffe: PropTypes.string, 
+	weight: PropTypes.number, 
+	country: PropTypes.string, 
+	price: PropTypes.string
+}
