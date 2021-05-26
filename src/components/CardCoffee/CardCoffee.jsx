@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
-import {wrapper, image, title_style, price_style ,country_style, beige, coffee} from './CardCoffee.module.scss';
-import coffeeImg from '../../assets/img/home/1.jpg';
-import { Link } from 'react-router-dom';
+import {wrapper, image, title_style, price_style, country_style, beige, coffee} from './CardCoffee.module.scss';
 
-const CardCoffee = ({bgColor = 'beige', imgSrc = coffeeImg, nameCoffee='Solimo', weight = 1, country = null, price = 10.73, id}) => {
+import { Link } from 'react-router-dom';
+import { Preloader } from '..';
+
+const CardCoffee = ({bgColor = 'beige', imgSrc, nameCoffee, weight, country, price, id}) => {
 	
+	
+
 	return (
 		<Link to={`/our_coffee/${id}`} className={wrapper + ' ' + (bgColor === 'beige' ? beige : null)}>
 			<div className={image}>

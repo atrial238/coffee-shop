@@ -25,18 +25,24 @@
 	.image {
 		flex: 1 1 auto;
 		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		position: relative;
 		margin-bottom: 5px;
+		padding-bottom: 48%;
 		@media (min-width: 1440px){
 			@include adaptiv-property('padding-top', 5, 1);
 		}
 		img {
-			 width: 70%;
+			position: absolute;
+			display: block;
+			width: 70%;
+			height: 100%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			object-fit: contain;
 		}
 	}
-	.title_style, .cuntry_style, .price_style {
+	.title_style, .country_style, .price_style {
 		font-size: 14px;
 		line-height: 20px;
 		margin-bottom: 10px;
@@ -54,7 +60,7 @@
 			white-space: nowrap;
 		}
 	}
-	.cuntry_style, .price_style {
+	.country_style, .price_style {
 		align-self: flex-end;
 	}
 	.price_style {

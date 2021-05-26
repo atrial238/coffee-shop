@@ -10,7 +10,7 @@ export const bestCoffee = [
 		imgSrc: SolimoImg,
 		nameCoffee: 'Solimo',
 		weight: 1,
-		country: null,
+		country: 'Brazil',
 		price: 10.37,
 		id: 0,
 	},
@@ -18,7 +18,7 @@ export const bestCoffee = [
 		imgSrc: Presto,
 		nameCoffee: 'Presto',
 		weight: 1,
-		country: null,
+		country: 'Columbia',
 		price: 15.99,
 		id: 1
 	},
@@ -26,7 +26,7 @@ export const bestCoffee = [
 		imgSrc: Aromistico,
 		nameCoffee: 'Aromistico',
 		weight: 1,
-		country: null,
+		country: 'Brazil',
 		price: 6.99,
 		id: 3
 	}
@@ -37,7 +37,7 @@ export const allCoffee = [
 		imgSrc: SolimoImg,
 		nameCoffee: 'Solimo',
 		weight: 1,
-		country: null,
+		country: 'Kenya',
 		price: 10.37,
 		id: 0,
 		description
@@ -46,7 +46,7 @@ export const allCoffee = [
 		imgSrc: Presto,
 		nameCoffee: 'Presto',
 		weight: 1,
-		country: null,
+		country: 'Columbia',
 		price: 15.99,
 		id: 1,
 		description
@@ -55,9 +55,9 @@ export const allCoffee = [
 		imgSrc: Aromistico,
 		nameCoffee: 'Aromistico',
 		weight: 1,
-		country: null,
+		country: 'Kenya',
 		price: 6.99,
-		id: 3,
+		id: 2,
 		description
 	},
 	{
@@ -66,7 +66,7 @@ export const allCoffee = [
 		weight: 1,
 		country: 'Kenya',
 		price: 7.29,
-		id: 4,
+		id: 3,
 		description
 	},
 	{
@@ -75,7 +75,7 @@ export const allCoffee = [
 		weight: 1,
 		country: 'Columbia',
 		price: 17.29,
-		id: 5,
+		id: 4,
 		description
 	},
 	{
@@ -84,7 +84,7 @@ export const allCoffee = [
 		weight: 2,
 		country: 'Brazil',
 		price: 11.21,
-		id: 6,
+		id: 5,
 		description
 	},
 	{
@@ -93,7 +93,7 @@ export const allCoffee = [
 		weight: 2,
 		country: 'Kenya',
 		price: 10.29,
-		id: 7,
+		id: 6,
 		description
 	},
 	{
@@ -102,7 +102,7 @@ export const allCoffee = [
 		weight: 1,
 		country: 'Columbia',
 		price: 3.29,
-		id: 8,
+		id: 7,
 		description
 	},
 	{
@@ -111,7 +111,7 @@ export const allCoffee = [
 		weight: 3,
 		country: 'Brazil',
 		price: 32.31,
-		id: 9,
+		id: 8,
 		description
 	},
 	{
@@ -120,7 +120,7 @@ export const allCoffee = [
 		weight: 0.5,
 		country: 'Kenya',
 		price: 2.31,
-		id: 10,
+		id: 9,
 		description
 	},
 	{
@@ -129,7 +129,7 @@ export const allCoffee = [
 		weight: 1.5,
 		country: 'Columbia',
 		price: 24.1,
-		id: 11,
+		id: 10,
 		description
 	},
 	{
@@ -138,7 +138,7 @@ export const allCoffee = [
 		weight: 3,
 		country: 'Brazil',
 		price: 14.13,
-		id: 12,
+		id: 11,
 		description
 	},
 	{
@@ -147,7 +147,7 @@ export const allCoffee = [
 		weight: 1,
 		country: 'Kenya',
 		price: 4.13,
-		id: 13,
+		id: 12,
 		description
 	},
 	{
@@ -156,7 +156,7 @@ export const allCoffee = [
 		weight: 1,
 		country: 'Columbia',
 		price: 42.13,
-		id: 14,
+		id: 13,
 		description
 	},
 	{
@@ -165,7 +165,7 @@ export const allCoffee = [
 		weight: 1,
 		country: 'Brazil',
 		price: 2.13,
-		id: 15,
+		id: 14,
 		description
 	},
 	

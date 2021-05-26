@@ -18,7 +18,7 @@ export const getSpecificCoffee = (id) => (dispatch) =>  {
 				dispatch(setIsError(true))
 			}else{
 				dispatch(setIsError(false))
-				dispatch(setBestCoffee(res))
+				dispatch(setBestCoffee(res.specificCoffee))
 			}
 		})
 }

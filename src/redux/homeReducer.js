@@ -19,7 +19,7 @@ export const getBestCoffee = () => (dispatch) =>  {
 				dispatch(setIsError(true))
 			}else{
 				dispatch(setIsError(false))
-				dispatch(setBestCoffee(res))
+				dispatch(setBestCoffee(res.bestCoffee))
 			}
 		})
 }

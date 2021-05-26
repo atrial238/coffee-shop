@@ -1,0 +1,11 @@
+@import '../../../../style/mixins.scss';
+
+.wrapper_grid {
+	@include adaptiv-property('width', 800, 300);
+	margin: 0 auto;
+	.paginator {
+		display: flex;
+		justify-content: center;
+		@include adaptiv-property('margin-bottom', 30, 15);
+	}
+}

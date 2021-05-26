@@ -8,6 +8,6 @@ export {default as Footer} from './Footer/Footer';
 export {default as GridContainer} from './GridContainer/GridContainer';
 export {default as About} from './About/About';
 export {default as Preloader} from './SVG/Preloader';
-
+export {default as Paginator} from './Paginator/Paginator';
 
 
