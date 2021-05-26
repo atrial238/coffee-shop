@@ -1,30 +1,39 @@
 
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 import {GridContainer, Paginator, Preloader} from '../../../../components';
 import SearchPanel from './SearchPanel/SearchPanel';
-import {setPage, getCoffee} from '../../../../redux/ourCoffeeReducer';
-import {wrapper_search_panel, wrapper, wrapper_grid, paginator} from './SearchSection.module.scss';
-import { useEffect } from 'react';
+import {setPage, getCoffee, searchByCountry, searchByName, resetFilter} from '../../../../redux/ourCoffeeReducer';
+import {wrapper_search_panel, wrapper, wrapper_grid, paginator, result_search, reset} from './SearchSection.module.scss';
 
-const SearchSection = ({coffeePerPage, getCoffee, page, setPage, isLoading, isError, isLastPage, isFirstPage}) => {
+const SearchSection = ({coffeePerPage, getCoffee, page, setPage,
+	 isLoading, isError, isLastPage, isFirstPage, isSearchByName, resetFilter,
+	 searchByCountry, countrySearch, inputSearch, searchByName, isItemFound}) => {
 
-	useEffect(() => getCoffee(page), [page, getCoffee]);
+	useEffect(() => getCoffee(page, countrySearch, inputSearch), [page, getCoffee, countrySearch, inputSearch]);
+
+	const propsSearchPanel = {searchByCountry, countrySearch, isLoading, searchByName};
+	const propsPaginator = {setPage, isLoading, isLastPage, isFirstPage};
 
 	return (
 		<section className={wrapper}>
-			<div className={wrapper_search_panel}><SearchPanel/></div>
+			<div className={wrapper_search_panel}><SearchPanel {...propsSearchPanel}/></div>
 			<div className={wrapper_grid}>
 
-				<div className={paginator}><Paginator setPage={setPage} isLoading={isLoading} isLastPage={isLastPage} isFirstPage={isFirstPage}/></div>
+				<div className={paginator}>
+					<div><Paginator {...propsPaginator} /></div>
+					<button className={reset} onClick={resetFilter} disabled={isLoading}>Reset filter</button>
+				</div>
 
+				{isSearchByName && <div className={result_search}>Search results for: {`"${inputSearch}"`}</div>}
 				{(isLoading && <Preloader/>)
 				||(isError && <div className='error'>Oops! Something went wrong</div>)
+				|| (isItemFound && <div>No matches for: {inputSearch}</div>)
 				|| <GridContainer coffeePerPage={coffeePerPage}/>}
 				
 			</div>
-			
 		</section>
 		)
 }
@@ -35,8 +44,21 @@ const mapStateToProps = (state) => ({
 	page: state.ourCoffee.page,
 	isFirstPage: state.ourCoffee.isFirstPage,
 	isLastPage: state.ourCoffee.isLastPage,
+	countrySearch: state.ourCoffee.countrySearch,
+	inputSearch: state.ourCoffee.inputSearch,
+	isSearchByName: state.ourCoffee.isSearchByName,
+	isItemFound: state.ourCoffee.isItemFound
 })
-export default connect(mapStateToProps, {setPage, getCoffee})(SearchSection);
+
+const mapDispatchToProps = {
+	resetFilter,
+	setPage, 
+	getCoffee, 
+	searchByCountry, 
+	searchByName
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchSection);
 
 SearchSection.propTypes = {
 	coffeePerPage: PropTypes.array,
@@ -47,4 +69,10 @@ SearchSection.propTypes = {
 	getCoffee: PropTypes.func,
 	isLastPage: PropTypes.bool,
 	isFirstPage: PropTypes.bool,
+	searchByCountry: PropTypes.func,
+	countrySearch: PropTypes.string,
+	inputSearch: PropTypes.string,
+	searchByName: PropTypes.func,
+	isSearchByName: PropTypes.bool,
+	isItemFound: PropTypes.bool
 }

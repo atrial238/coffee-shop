@@ -73,7 +73,7 @@ export const allCoffee = [
 		imgSrc: Arabica,
 		nameCoffee: 'Arabica',
 		weight: 1,
-		country: 'Columbia',
+		country: 'Kenya',
 		price: 17.29,
 		id: 4,
 		description

@@ -1,6 +1,6 @@
 import {bestCoffee, allCoffee} from '../API/fakeData/fakeData';
 
-
+//emulation of a request to the server
 const sleep = (data) => {
 	return new Promise((resolve, rej) => {
 		setTimeout(() => {
@@ -10,6 +10,13 @@ const sleep = (data) => {
 	})
 	.then(res => res.status === 'ok' ? res : 'error')
 	.catch(() => 'error')
+}
+
+//this is boudary item for pagination
+const getBoundaryItems = (page, limit) => {
+	const firstItem = page * limit;
+	const lastItem = page * limit + (limit - 1);
+	return [firstItem, lastItem];
 }
 
 //get best coffee for home page
@@ -25,13 +32,31 @@ export const getSpecificCoffeeAPI = (id) => {
 }
 
 //get all coffee by pagination
-export const getAllCoffeeAPI = (page = 0, limit = 6) => {
+export const getAllCoffeeAPI = (page = 0, country, input, limit = 6) => {
 	if(page < 0) page = 0;
-	const firstItem = page * limit;
-	const lastItem = page * limit + (limit - 1);
-	let coffeePerPage = allCoffee.filter((_, index) => firstItem <= index && index <= lastItem)
-	if(!coffeePerPage.length) coffeePerPage = 'no items found'
-	const data = {status: 'ok', coffeePerPage, allItems: allCoffee.length}
+	const [firstItem, lastItem] = getBoundaryItems(page, limit);
+	const coffeePerPage = allCoffee.filter((_, index) => firstItem <= index && index <= lastItem);
+	const data = {status: 'ok', coffeePerPage, allItems: allCoffee.length};
+	return sleep(data);
+}
+
+//get coffee filtered by country
+export const getCoffeeFilteredAPI = (page = 0, country, input, limit = 6) => {
 	
+	if(page < 0) page = 0;
+	const [firstItem, lastItem] = getBoundaryItems(page, limit);
+	const coffeePerCountry = allCoffee.filter(el => el.country === country);
+	const coffeePerPage = coffeePerCountry.filter((_, index) => firstItem <= index && index <= lastItem)
+	const data = {status: 'ok', coffeePerPage, allItems: coffeePerCountry.length}
+	return sleep(data);
+}
+
+//get coffee filterd by name 
+export const getCoffeeByName = (page = 0, coutry, input, limit = 6) => {
+	if(page < 0) page = 0;
+	const [firstItem, lastItem] = getBoundaryItems(page, limit);
+	const coffeePerName = allCoffee.filter(el => el.nameCoffee.includes(input));
+	const coffeePerPage = coffeePerName.filter((_, index) => firstItem <= index && index <= lastItem)
+	const data = {status: 'ok', coffeePerPage, allItems: coffeePerName.length}
 	return sleep(data);
 }

@@ -1,4 +1,4 @@
-import {disabled} from './Paginator.module.scss';
+import {disabled, button} from './Paginator.module.scss';
 
 const Paginator = ({setPage, isLoading, isFirstPage, isLastPage}) => {
 	
@@ -7,7 +7,7 @@ const Paginator = ({setPage, isLoading, isFirstPage, isLastPage}) => {
 			<button 
 				disabled={isLoading || isFirstPage} 
 				onClick={() => setPage(-1)}
-				className={(isFirstPage && disabled) || (isLoading && disabled)}
+				className={button + ' ' + (isFirstPage && disabled) || (isLoading && disabled)}
 				>
 					Previous
 			</button>
@@ -15,7 +15,7 @@ const Paginator = ({setPage, isLoading, isFirstPage, isLastPage}) => {
 			<button 
 				disabled={isLoading || isLastPage} 
 				onClick={() => setPage(1)} 
-				className={(isLastPage && disabled) || (isLoading && disabled)}
+				className={button + ' ' + (isLastPage && disabled) || (isLoading && disabled)}
 			>
 				Next
 			</button>

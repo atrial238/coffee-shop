@@ -12,11 +12,28 @@
 		flex-direction: column;
 	}
 	.looking_for {
+		position: relative;
 		label {
 			@include adaptiv-property('margin-right', 20, 10);
 		}
+		.button_search {
+			position: absolute;
+			background: center / 70% no-repeat url('../../../../../assets/img/our_coffee/search.svg');
+			width: 40px;
+			height: 100%;
+			top: 0;
+			right: 0;
+			transition: all .4s;
+			opacity: 0;
+		}
+		&:focus-within {
+			.button_search{
+				opacity: 1;
+			}	
+		}
 		input {
 			padding: 0 10px;
+			padding-right: 40px;
 			@include adaptiv-property('padding-top', 10, 6);
 			@include adaptiv-property('padding-bottom', 10, 6);
 			transition: all .4s;
@@ -37,7 +54,7 @@
 	}
 	.filter {
 		span {
-			@include adaptiv-property('margin-right', 35, 18);
+			@include adaptiv-property('margin-right', 25, 14);
 		}
 		button {
 			background: #FFFFFF;
@@ -58,10 +75,15 @@
 			&:last-child {
 				border-radius: 0px 4px 4px 0px;
 			}
-			&:hover, .active {
+			@media(min-width: 992px){
+				&:hover {
+					box-shadow: 0px 0px 3px #f0c884;
+					transform: translate(1px, 2px);
+				}
+			}
+			&.active {
 				box-shadow: 0px 0px 3px #f0c884;
 				transform: translate(1px, 2px);
-
 			}
 		}
 	}
