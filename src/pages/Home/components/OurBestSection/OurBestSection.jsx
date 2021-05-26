@@ -2,18 +2,17 @@ import { useEffect, useState } from 'react';
 
 import { CardCoffee } from '../../../../components';
 import {wrapper, card_wrapper, card} from './OurBestSection.module.scss';
-import {getBestCoffeeAPI} from '../../../../API/api';
 
-const OurBestSection = () => {
 
-	const [bestCoffee, setBestCoffee] = useState([]);
+const OurBestSection = ({bestCoffe, isLoading, isError, getBestCoffee}) => {
+
+	console.log(bestCoffe)
 	
 	useEffect(() => {
-		getBestCoffeeAPI()
-			.then(res => setBestCoffee(res))
-	},[])
+		getBestCoffee()
+	}, [])
 
-	const bestCoffeeElement = bestCoffee.map(el => <div key={el.id} className={card}><CardCoffee {...el}/></div>);
+	const bestCoffeeElement = bestCoffe.map(el => <div key={el.id} className={card}><CardCoffee {...el}/></div>);
 
 	return (
 		<section className={wrapper}>
