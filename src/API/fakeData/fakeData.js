@@ -1,6 +1,7 @@
 import imageSrc from './imgForFakeData';
 
-const [SolimoImg, Presto, Aromistico] = imageSrc;
+const [SolimoImg, Presto, Aromistico, Flores, Arabica, Sicilia, HouseBlend,
+	Superia, Ciao, Lavazza, Vergnano, Rwanda, SelloRojo, DarkRoast, Peets] = imageSrc;
 
 const description = 'Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 
@@ -58,5 +59,116 @@ export const allCoffee = [
 		price: 6.99,
 		id: 3,
 		description
-	}
+	},
+	{
+		imgSrc: Flores,
+		nameCoffee: 'Flores',
+		weight: 1,
+		country: 'Kenya',
+		price: 7.29,
+		id: 4,
+		description
+	},
+	{
+		imgSrc: Arabica,
+		nameCoffee: 'Arabica',
+		weight: 1,
+		country: 'Columbia',
+		price: 17.29,
+		id: 5,
+		description
+	},
+	{
+		imgSrc: Sicilia,
+		nameCoffee: 'Sicilia',
+		weight: 2,
+		country: 'Brazil',
+		price: 11.21,
+		id: 6,
+		description
+	},
+	{
+		imgSrc: HouseBlend,
+		nameCoffee: 'House Blend',
+		weight: 2,
+		country: 'Kenya',
+		price: 10.29,
+		id: 7,
+		description
+	},
+	{
+		imgSrc: Superia,
+		nameCoffee: 'Superia',
+		weight: 1,
+		country: 'Columbia',
+		price: 3.29,
+		id: 8,
+		description
+	},
+	{
+		imgSrc: Ciao,
+		nameCoffee: 'Ciao',
+		weight: 3,
+		country: 'Brazil',
+		price: 32.31,
+		id: 9,
+		description
+	},
+	{
+		imgSrc: Lavazza,
+		nameCoffee: 'Lavazza',
+		weight: 0.5,
+		country: 'Kenya',
+		price: 2.31,
+		id: 10,
+		description
+	},
+	{
+		imgSrc: Vergnano,
+		nameCoffee: 'Vergnano',
+		weight: 1.5,
+		country: 'Columbia',
+		price: 24.1,
+		id: 11,
+		description
+	},
+	{
+		imgSrc: Rwanda,
+		nameCoffee: 'Rwanda',
+		weight: 3,
+		country: 'Brazil',
+		price: 14.13,
+		id: 12,
+		description
+	},
+	{
+		imgSrc: SelloRojo,
+		nameCoffee: 'Sello Rojo',
+		weight: 1,
+		country: 'Kenya',
+		price: 4.13,
+		id: 13,
+		description
+	},
+	{
+		imgSrc: DarkRoast,
+		nameCoffee: 'Dark Roast',
+		weight: 1,
+		country: 'Columbia',
+		price: 42.13,
+		id: 14,
+		description
+	},
+	{
+		imgSrc: Peets,
+		nameCoffee: 'Peets',
+		weight: 1,
+		country: 'Brazil',
+		price: 2.13,
+		id: 15,
+		description
+	},
+	
+
+	
 ]
