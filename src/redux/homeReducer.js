@@ -34,7 +34,6 @@ const initState = {
 export const homeReducer = (state = initState, action) => {
 	switch(action.type){
 		case GET_BEST_COFFEE:
-			console.log(action.body)
 			return {...state, bestCoffe: action.body}
 		case SET_IS_LOADING:
 			return {...state, isLoading: action.body}

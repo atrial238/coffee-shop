@@ -4,9 +4,10 @@ export const getBestCoffeeAPI = () => {
 	return new Promise((resolve, rej) => {
 		setTimeout(() => {
 			const data = {status: 'ok', bestCoffee};
+			// rej()
 			resolve(data);
-		}, 200)
+		}, 3000)
 	})
-	.then(res => res.status === 'ok'? res.bestCoffee : 'error')
+	.then(res => res.status === 'ok' ? res.bestCoffee : 'error')
 	.catch(() => 'error')
 }

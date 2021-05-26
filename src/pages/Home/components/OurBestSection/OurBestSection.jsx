@@ -1,24 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-import { CardCoffee } from '../../../../components';
+import { CardCoffee, Preloader } from '../../../../components';
 import {wrapper, card_wrapper, card} from './OurBestSection.module.scss';
-
+import {getBestCoffee} from '../../../../redux/homeReducer';
 
 const OurBestSection = ({bestCoffe, isLoading, isError, getBestCoffee}) => {
 
-	console.log(bestCoffe)
-	
-	useEffect(() => {
-		getBestCoffee()
-	}, [])
+	useEffect(() => {getBestCoffee()}, [])
 
 	const bestCoffeeElement = bestCoffe.map(el => <div key={el.id} className={card}><CardCoffee {...el}/></div>);
 
 	return (
 		<section className={wrapper}>
 			<h2 className='subtitle'>Our best</h2>
-			<div className={card_wrapper}>{bestCoffeeElement}</div>
+
+			{(isLoading && <Preloader color='#ffffff'/>)
+			|| (isError && <div className='error'>Oops! Something went wrong</div>)
+			|| <div className={card_wrapper}>{bestCoffeeElement}</div>}
 		</section>
 	)
 }
-export default OurBestSection;
+
+const mapStateToProps = (state) => ({
+	bestCoffe: state.home.bestCoffe,
+	isLoading: state.home.isLoading,
+	isError: state.home.isError
+	
+});
+export default connect(mapStateToProps, {getBestCoffee})(OurBestSection);
+
+
+
+

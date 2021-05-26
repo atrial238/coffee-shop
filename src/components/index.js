@@ -7,4 +7,7 @@ export {default as Header} from './Header/Header';
 export {default as Footer} from './Footer/Footer';
 export {default as GridContainer} from './GridContainer/GridContainer';
 export {default as About} from './About/About';
+export {default as Preloader} from './SVG/Preloader';
+
+
 

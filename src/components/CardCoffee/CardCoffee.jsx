@@ -4,7 +4,7 @@ import coffeeImg from '../../assets/img/home/1.jpg';
 import { Link } from 'react-router-dom';
 
 const CardCoffee = ({bgColor = 'beige', imgSrc = coffeeImg, nameCoffee='Solimo', weight = 1, country = null, price = 10.73}) => {
-	console.log(nameCoffee)
+	
 	return (
 		<Link to={`/our_coffee/${nameCoffee.toLowerCase()}`} className={wrapper + ' ' + (bgColor === 'beige' ? beige : null)}>
 			<div className={image}>
