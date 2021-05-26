@@ -1,26 +1,64 @@
-import {wrapper, container, image, text, discription, country, price, subtitle} from './AboutSection.module.scss';
-import {Divider} from '../../../../components';
-import imgSrc from '../../../../assets/img/about_coffee/1.jpg';
+import PropTypes from 'prop-types';
+import { useParams } from 'react-router';
+import {connect} from 'react-redux';
+import { useEffect } from 'react';
 
-const AboutSection = () => {
+import {wrapper, container, image, text, discription, country_style, price_style, subtitle} from './AboutSection.module.scss';
+import {Divider, Preloader} from '../../../../components';
+import {getSpecificCoffee} from '../../../../redux/aboutCoffeeReducer';
+
+const AboutSection = ({specificCoffee, isLoading, isError, getSpecificCoffee}) => {
+	
+	const {id} = useParams();
+	const {imgSrc, country, price, description} = specificCoffee;
+
+	useEffect(() => getSpecificCoffee(id), [id, getSpecificCoffee]);
+
+	const containerElem = (
+		<div className={container}>
+			<div className={image}>
+				<img src={imgSrc} alt="coffee" />
+			</div>
+			<div className={text}>
+				<h3 className={`subtitle ${subtitle}`}>About it</h3>
+				<Divider color='black'/>
+				<div className={country_style}><span>Country:</span> {country ? country : 'brazil'}</div>
+				<div className={discription}>
+					<span>Description: </span>{description}
+				</div>
+				<div className={price_style}><span>Price:</span> {price}$</div>
+			</div>
+		</div>
+	)
+
 	return (
 		<section className={wrapper}>
-			<div className={container}>
-				 <div className={image}>
-					 <img src={imgSrc} alt="coffee" />
-				 </div>
-				 <div className={text}>
-					 <h3 className={`subtitle ${subtitle}`}>About it</h3>
-					 <Divider color='black'/>
-					 <div className={country}><span>Country:</span> brasil</div>
-					 <div className={discription}>
-							 <span>Description: </span>
-							 Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					 </div>
-					 <div className={price}><span>Price:</span> 16.99$</div>
-				 </div>
-			</div>
+			{(isLoading && <Preloader color='#f0c884'/>) 
+			|| (isError && <div className='error'>Oops! Something went wrong</div>) 
+			|| containerElem}
 		</section>
 	)
 }
-export default AboutSection;
+
+const mapStateToProps = (state) => ({
+	specificCoffee: state.aboutCoffee.specificCoffee,
+	isLoading: state.aboutCoffee.isLoading,
+	isError: state.aboutCoffee.isError
+})
+
+export default connect(mapStateToProps, {getSpecificCoffee})(AboutSection);
+
+AboutSection.propTypes = {
+	specificCoffee: PropTypes.shape({
+		imgSrc: PropTypes.string,
+		nameCoffee: PropTypes.string,
+		weight: PropTypes.number,
+		country: PropTypes.string,
+		price: PropTypes.number,
+		id: PropTypes.number,
+		description: PropTypes.string
+	}),
+	isLoading: PropTypes.bool,
+	isError: PropTypes.bool,
+	getSpecificCoffee: PropTypes.func
+}

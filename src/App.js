@@ -14,7 +14,7 @@ function App() {
 			<div className="App">
 				<Route exact path={['/', '/home']} component={Home}/>
 				<Route exact path='/our_coffee' component={OurCoffee}/>
-				<Route exact path='/our_coffee/:item' component={AboutCoffee}/>
+				<Route exact path='/our_coffee/:id' component={AboutCoffee}/>
 				<Route exact path='/your_pleasure' component={Pleasure}/>
 			</div>
 		</Router>
