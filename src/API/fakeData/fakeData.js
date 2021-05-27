@@ -168,7 +168,61 @@ export const allCoffee = [
 		id: 14,
 		description
 	},
-	
+]
 
-	
+export const coffeePleasure = [
+	{
+		imgSrc: Lavazza,
+		nameCoffee: 'Lavazza',
+		weight: 0.5,
+		country: 'Kenya',
+		price: 2.31,
+		id: 9,
+		description
+	},
+	{
+		imgSrc: Vergnano,
+		nameCoffee: 'Vergnano',
+		weight: 1.5,
+		country: 'Columbia',
+		price: 24.1,
+		id: 10,
+		description
+	},
+	{
+		imgSrc: Rwanda,
+		nameCoffee: 'Rwanda',
+		weight: 3,
+		country: 'Brazil',
+		price: 14.13,
+		id: 11,
+		description
+	},
+	{
+		imgSrc: SelloRojo,
+		nameCoffee: 'Sello Rojo',
+		weight: 1,
+		country: 'Kenya',
+		price: 4.13,
+		id: 12,
+		description
+	},
+	{
+		imgSrc: DarkRoast,
+		nameCoffee: 'Dark Roast',
+		weight: 1,
+		country: 'Columbia',
+		price: 42.13,
+		id: 13,
+		description
+	},
+	{
+		imgSrc: Peets,
+		nameCoffee: 'Peets',
+		weight: 1,
+		country: 'Brazil',
+		price: 2.13,
+		id: 14,
+		description
+	},
 ]

@@ -1,4 +1,4 @@
-import {getAllCoffeeAPI, getCoffeeFilteredAPI, getCoffeeByName} from '../API/api';
+import {getAllCoffeeAPI, getCoffeeByCountryAPI, getCoffeeByNameAPI} from '../API/api';
 
 const setIsError = (bool) => ({type: SET_IS_ERROR, body: bool}),
 		setIsLoading = (bool) => ({type: SET_IS_LOADING, body: bool}),
@@ -7,7 +7,7 @@ const setIsError = (bool) => ({type: SET_IS_ERROR, body: bool}),
 		setIsLastPage = (bool) => ({type: SET_IS_LAST_PAGE, body: bool}),
 		setIsSearchAllCoffee = (bool) => ({type: SET_IS_SEARCH_ALL_COFFEE, body: bool}),
 		setIsSearchByName = (bool) => ({type: SET_IS_SEARCH_BY_NAME, body: bool}),
-		setIsSearchByFilter = (bool) => ({type: SET_IS_SEARCH_BY_FILTER, body: bool}),
+		setIsSearchByCountry = (bool) => ({type: SET_IS_SEARCH_BY_COUNTRY, body: bool}),
 		setCountry  = (data) => ({type: SET_COUNTRY, body: data}),
 		setInput = (data) => ({type: SET_INPUT, body: data}),
 		setPageZero = () => ({type: SET_PAGE_ZERO}),
@@ -23,7 +23,7 @@ const GET_COFFEE ='ourCoffee_reducer/GET_BEST_COFFEE',
 		SET_IS_LAST_PAGE = 'ourCoffee_reducer/SET_IS_LAST_PAGE',
 		SET_IS_SEARCH_ALL_COFFEE = 'ourCoffee_reducer/SET_IS_SEARCH_ALL_COFFEE',
 		SET_IS_SEARCH_BY_NAME = 'ourCoffee_reducer/SET_IS_SEARCH_BY_NAME',
-		SET_IS_SEARCH_BY_FILTER = 'ourCoffee_reducer/SET_IS_SEARCH_BY_FILTER',
+		SET_IS_SEARCH_BY_COUNTRY = 'ourCoffee_reducer/SET_IS_SEARCH_BY_COUNTRY',
 		SET_COUNTRY = 'ourCoffee_reducer/SET_COUNTRY',
 		SET_INPUT = 'ourCoffee_reducer/SET_INPUT',
 		SET_PAGE_ZERO = 'ourCoffee_reducer/SET_PAGE_ZERO',
@@ -31,7 +31,7 @@ const GET_COFFEE ='ourCoffee_reducer/GET_BEST_COFFEE',
 
 // thunk creator for searching by country
 export const searchByCountry = (country) => (dispatch) =>{
-	dispatch(setIsSearchByFilter(true));
+	dispatch(setIsSearchByCountry(true));
 	dispatch(setIsSearchAllCoffee(false));
 	dispatch(setIsSearchByName(false));
 	dispatch(setCountry(country));
@@ -40,17 +40,19 @@ export const searchByCountry = (country) => (dispatch) =>{
 
 // thunk creator for searching by name
 export const searchByName = (input) => (dispatch) => {
-	dispatch(setIsSearchByFilter(false));
-	dispatch(setIsSearchAllCoffee(false));
-	dispatch(setIsSearchByName(true));
-	dispatch(setPageZero());
-	dispatch(setCountry(''));
-	dispatch(setInput(input));
+	if(input !== ''){
+		dispatch(setIsSearchByCountry(false));
+		dispatch(setIsSearchAllCoffee(false));
+		dispatch(setIsSearchByName(true));
+		dispatch(setPageZero());
+		dispatch(setCountry(''));
+		dispatch(setInput(input));
+	}
 }
 
 // thunk creator for reset filter
 export const resetFilter = () => (dispatch) =>{
-	dispatch(setIsSearchByFilter(false));
+	dispatch(setIsSearchByCountry(false));
 	dispatch(setIsSearchAllCoffee(true));
 	dispatch(setIsSearchByName(false));
 	dispatch(setPageZero());
@@ -61,15 +63,15 @@ export const resetFilter = () => (dispatch) =>{
 //thunk creator make request to a server
 export const getCoffee = (page, country, input) => (dispatch, getState) => {
 	//destructuring the required variable from the state
-	const {ourCoffee: {isSearchAllCoffee, isSearchByName, isSearchByFilter}} = getState();
+	const {ourCoffee: {isSearchAllCoffee, isSearchByName, isSearchByCountry}} = getState();
 	
 	//method API depends which request must be done
 		//1)if get all the coffee without filtering (getAllCoffeeAPI)
 		//2)if filter by country (getCoffeeFilteredAPI)
-		//3)if filter by name (getCoffeeByName)
+		//3)if filter by name (getCoffeeByNameAPI)
 	const methodAPI = (isSearchAllCoffee && getAllCoffeeAPI) 
-							|| (isSearchByFilter && getCoffeeFilteredAPI)
-							|| (isSearchByName && getCoffeeByName);
+							|| (isSearchByCountry && getCoffeeByCountryAPI)
+							|| (isSearchByName && getCoffeeByNameAPI);
 	
 	dispatch(setIsFirstPage(false))
 	if(page === 0) dispatch(setIsFirstPage(true))
@@ -101,7 +103,7 @@ const initState = {
 	isLastPage: false,
 	isSearchAllCoffee: true,
 	isSearchByName: false,
-	isSearchByFilter: false,
+	isSearchByCountry: false,
 	countrySearch: '',
 	inputSearch: '',
 	page: 0,
@@ -126,8 +128,8 @@ export const ourCoffeeReducer = (state = initState, action) => {
 			return {...state, isSearchAllCoffee: action.body};
 		case SET_IS_SEARCH_BY_NAME:
 			return {...state, isSearchByName: action.body};
-		case SET_IS_SEARCH_BY_FILTER:
-			return {...state, isSearchByFilter: action.body};
+		case SET_IS_SEARCH_BY_COUNTRY:
+			return {...state, isSearchByCountry: action.body};
 		case SET_COUNTRY:
 			return {...state, countrySearch: action.body};
 		case SET_INPUT: 

@@ -1,4 +1,4 @@
-import {bestCoffee, allCoffee} from '../API/fakeData/fakeData';
+import {bestCoffee, allCoffee, coffeePleasure} from '../API/fakeData/fakeData';
 
 //emulation of a request to the server
 const sleep = (data) => {
@@ -25,6 +25,12 @@ export const getBestCoffeeAPI = () => {
 	return sleep(data);
 }
 
+//get coffee for pleasure page
+export const getCoffeePleasureAPI = () => {
+	const data = {status: 'ok', coffeePleasure};
+	return sleep(data);
+}
+
 //get specific coffee for AboutCoffee page
 export const getSpecificCoffeeAPI = (id) => {
 	const data = {status: 'ok', specificCoffee: allCoffee.find(el => el.id === +id)}
@@ -41,8 +47,7 @@ export const getAllCoffeeAPI = (page = 0, country, input, limit = 6) => {
 }
 
 //get coffee filtered by country
-export const getCoffeeFilteredAPI = (page = 0, country, input, limit = 6) => {
-	
+export const getCoffeeByCountryAPI = (page = 0, country, input, limit = 6) => {
 	if(page < 0) page = 0;
 	const [firstItem, lastItem] = getBoundaryItems(page, limit);
 	const coffeePerCountry = allCoffee.filter(el => el.country === country);
@@ -52,7 +57,7 @@ export const getCoffeeFilteredAPI = (page = 0, country, input, limit = 6) => {
 }
 
 //get coffee filterd by name 
-export const getCoffeeByName = (page = 0, coutry, input, limit = 6) => {
+export const getCoffeeByNameAPI = (page = 0, coutry, input, limit = 6) => {
 	if(page < 0) page = 0;
 	const [firstItem, lastItem] = getBoundaryItems(page, limit);
 	const coffeePerName = allCoffee.filter(el => el.nameCoffee.includes(input));
