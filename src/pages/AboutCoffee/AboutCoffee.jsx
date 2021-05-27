@@ -1,14 +1,14 @@
 import {wrapper} from './AboutCoffee.module.scss';
 import {HeaderOurCoffee} from '../OurCoffee/components';
-import { Footer } from '../../components';
+import { ErrorBoundary, Footer } from '../../components';
 import { AboutSection } from './components';
 
 const AboutCoffee = () => {
 	return (
 		<div className={wrapper}>
-			<HeaderOurCoffee/>
-			<AboutSection/>
-			<Footer/>
+			<ErrorBoundary><HeaderOurCoffee/></ErrorBoundary>
+			<ErrorBoundary><AboutSection/></ErrorBoundary>
+			<ErrorBoundary><Footer/></ErrorBoundary>
 		</div>
 
 	)

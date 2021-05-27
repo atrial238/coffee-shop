@@ -9,5 +9,4 @@ export {default as GridContainer} from './GridContainer/GridContainer';
 export {default as About} from './About/About';
 export {default as Preloader} from './SVG/Preloader';
 export {default as Paginator} from './Paginator/Paginator';
-
-
+export {default as ErrorBoundary} from './ErrorBoundary/ErrorBoundary';

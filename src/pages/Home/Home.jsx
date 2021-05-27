@@ -1,4 +1,4 @@
-import { Footer} from '../../components';
+import { ErrorBoundary, Footer} from '../../components';
 import {AboutUsSection, MainSection, OurBestSection} from './components';
 
 const Home = () => {
@@ -7,7 +7,10 @@ const Home = () => {
 		<>
 			<MainSection />
 			<AboutUsSection/>
-			<OurBestSection />
+			<ErrorBoundary>
+				<OurBestSection />
+			</ErrorBoundary>
+			
 			<Footer/>
 		</>
 	)

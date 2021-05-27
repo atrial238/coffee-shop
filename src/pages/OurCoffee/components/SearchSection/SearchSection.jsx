@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-import {GridContainer, Paginator, Preloader} from '../../../../components';
+import {ErrorBoundary, GridContainer, Paginator, Preloader} from '../../../../components';
 import SearchPanel from './SearchPanel/SearchPanel';
 import {setPage, getCoffee, searchByCountry, searchByName, resetFilter} from '../../../../redux/ourCoffeeReducer';
 import {wrapper_search_panel, wrapper, wrapper_grid, paginator, result_search, reset} from './SearchSection.module.scss';
@@ -19,8 +19,12 @@ const SearchSection = ({coffeePerPage, getCoffee, page, setPage,
 
 	return (
 		<section className={wrapper}>
-			<div className={wrapper_search_panel}><SearchPanel {...propsSearchPanel}/></div>
-			<div className={wrapper_grid}>
+			<ErrorBoundary>
+				<div className={wrapper_search_panel}><SearchPanel {...propsSearchPanel}/></div>
+			</ErrorBoundary>
+
+			<ErrorBoundary>
+				<div className={wrapper_grid}>
 
 				<div className={paginator}>
 					<div><Paginator {...propsPaginator} /></div>
@@ -32,8 +36,9 @@ const SearchSection = ({coffeePerPage, getCoffee, page, setPage,
 				||(isError && <div className='error'>Oops! Something went wrong</div>)
 				|| (isItemFound && <div>No matches for: {inputSearch}</div>)
 				|| <GridContainer coffeePerPage={coffeePerPage}/>}
-				
-			</div>
+
+				</div>
+			</ErrorBoundary>
 		</section>
 		)
 }
