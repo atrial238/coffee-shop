@@ -1,10 +1,14 @@
 import { CoffeeBeansTwo, Preloader } from '..';
-import {wrapper} from './PreloaderPage.module.scss';
+import {wrapper,title} from './PreloaderPage.module.scss';
+import bg from '../../assets/img/home/home_bg.jpg';
 
 const PreloaderPage = () => {
+	
 	return (
 		<div className={wrapper}>
-			<Preloader/>
+			<h2 className={title}>Coffee house</h2>
+			<Preloader color='white'/>
+			<img src={bg} alt="background" />
 		</div>
 	)
 }

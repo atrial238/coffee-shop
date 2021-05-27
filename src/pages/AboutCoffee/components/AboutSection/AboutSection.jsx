@@ -7,9 +7,10 @@ import {wrapper, container, image, text, discription, country_style, price_style
 import {Divider, Preloader} from '../../../../components';
 import {getSpecificCoffee} from '../../../../redux/aboutCoffeeReducer';
 
-const AboutSection = ({specificCoffee, isLoading, isError, getSpecificCoffee}) => {
+const AboutSection = ({specificCoffee, isLoading, isError, getSpecificCoffee, notFound}) => {
 	
 	const {id} = useParams();
+ 
 	const {imgSrc, country, price, description} = specificCoffee;
 
 	useEffect(() => getSpecificCoffee(id), [id, getSpecificCoffee]);
@@ -35,6 +36,7 @@ const AboutSection = ({specificCoffee, isLoading, isError, getSpecificCoffee}) =
 		<section className={wrapper}>
 			{(isLoading && <Preloader color='#f0c884'/>) 
 			|| (isError && <div className='error'>Oops! Something went wrong</div>) 
+			|| (notFound && <div>nothing found</div>)
 			|| containerElem}
 		</section>
 	)
@@ -43,7 +45,8 @@ const AboutSection = ({specificCoffee, isLoading, isError, getSpecificCoffee}) =
 const mapStateToProps = (state) => ({
 	specificCoffee: state.aboutCoffee.specificCoffee,
 	isLoading: state.aboutCoffee.isLoading,
-	isError: state.aboutCoffee.isError
+	isError: state.aboutCoffee.isError,
+	notFound: state.aboutCoffee.notFound
 })
 
 export default connect(mapStateToProps, {getSpecificCoffee})(AboutSection);
@@ -60,5 +63,6 @@ AboutSection.propTypes = {
 	}),
 	isLoading: PropTypes.bool,
 	isError: PropTypes.bool,
-	getSpecificCoffee: PropTypes.func
+	getSpecificCoffee: PropTypes.func,
+	notFound: PropTypes.bool
 }
