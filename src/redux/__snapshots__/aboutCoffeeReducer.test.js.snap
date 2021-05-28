@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`aboutCoffeeReducer shoud return initial state 1`] = `
+Object {
+  "isError": false,
+  "isLoading": false,
+  "notFound": false,
+  "specificCoffee": Object {},
+}
+`;
+
+exports[`aboutCoffeeReducer shoud set bestCoffee array 1`] = `
+Object {
+  "isError": false,
+  "isLoading": false,
+  "notFound": false,
+  "specificCoffee": Object {
+    "coffeeone": "one",
+  },
+}
+`;
+
+exports[`aboutCoffeeReducer shoud set isError true 1`] = `
+Object {
+  "isError": true,
+  "isLoading": false,
+  "notFound": false,
+  "specificCoffee": Object {},
+}
+`;
+
+exports[`aboutCoffeeReducer shoud set isLoading true 1`] = `
+Object {
+  "isError": false,
+  "isLoading": true,
+  "notFound": false,
+  "specificCoffee": Object {},
+}
+`;
+
+exports[`aboutCoffeeReducer shoud set notFound true 1`] = `
+Object {
+  "isError": false,
+  "isLoading": false,
+  "notFound": true,
+  "specificCoffee": Object {},
+}
+`;
+
+exports[`homeReducer shoud return initial state 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set bestCoffee array 1`] = `
+Object {
+  "bestCoffe": Array [
+    Object {
+      "coffeeone": "one",
+    },
+    Object {
+      "coffeeTwo": "two",
+    },
+  ],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set isError true 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": true,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set isLoading true 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": false,
+  "isLoading": true,
+}
+`;

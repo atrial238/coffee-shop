@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`homeReducer shoud return initial state 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set bestCoffee array 1`] = `
+Object {
+  "bestCoffe": Array [
+    Object {
+      "coffeeone": "one",
+    },
+    Object {
+      "coffeeTwo": "two",
+    },
+  ],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set isError true 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": true,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set isLoading true 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": false,
+  "isLoading": true,
+}
+`;
+
+exports[`ourCoffeeReducer should decrease on increasing number of page 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 1,
+}
+`;
+
+exports[`ourCoffeeReducer should return initial state 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set coffePerPage array 1`] = `
+Object {
+  "coffeePerPage": Array [
+    Object {
+      "coffeeone": "one",
+    },
+    Object {
+      "coffeeTwo": "two",
+    },
+  ],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set country for search 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "country",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set first page true 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": true,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set is any coffee found true 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": true,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set isError true 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": true,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set isLoading true 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": true,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set isSearchAllCoffee true 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set isSearchByCountry true 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": true,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set isSearchByName true 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": true,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set last page true 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": true,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set nameCoffee for search 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "someName",
+  "page": 0,
+}
+`;
+
+exports[`ourCoffeeReducer should set page zero 1`] = `
+Object {
+  "coffeePerPage": Array [],
+  "countrySearch": "",
+  "isError": false,
+  "isFirstPage": false,
+  "isItemFound": false,
+  "isLastPage": false,
+  "isLoading": false,
+  "isSearchAllCoffee": true,
+  "isSearchByCountry": false,
+  "isSearchByName": false,
+  "nameCoffeeSearch": "",
+  "page": 0,
+}
+`;

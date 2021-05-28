@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`homeReducer shoud add new bestCoffee array 1`] = `
+Object {
+  "bestCoffe": Array [
+    Object {
+      "coffeeone": "one",
+    },
+    Object {
+      "coffeeTwo": "two",
+    },
+  ],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud return initial state 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set bestCoffee array 1`] = `
+Object {
+  "bestCoffe": Array [
+    Object {
+      "coffeeone": "one",
+    },
+    Object {
+      "coffeeTwo": "two",
+    },
+  ],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set isError true 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": true,
+  "isLoading": false,
+}
+`;
+
+exports[`homeReducer shoud set isLoading true 1`] = `
+Object {
+  "bestCoffe": Array [],
+  "isError": false,
+  "isLoading": true,
+}
+`;
+
+exports[`thunk  success 1`] = `
+Array [
+  Object {
+    "body": false,
+    "type": "home_reducer/SET_IS_ERROR",
+  },
+  Object {
+    "body": true,
+    "type": "home_reducer/SET_IS_LOADING",
+  },
+  Object {
+    "body": false,
+    "type": "home_reducer/SET_IS_LOADING",
+  },
+  Object {
+    "body": false,
+    "type": "home_reducer/SET_IS_ERROR",
+  },
+  Object {
+    "body": Array [
+      Object {
+        "country": "Brazil",
+        "id": 0,
+        "imgSrc": "1.jpg",
+        "nameCoffee": "Solimo",
+        "price": 10.37,
+        "weight": 1,
+      },
+      Object {
+        "country": "Columbia",
+        "id": 1,
+        "imgSrc": "2.jpg",
+        "nameCoffee": "Presto",
+        "price": 15.99,
+        "weight": 1,
+      },
+      Object {
+        "country": "Brazil",
+        "id": 3,
+        "imgSrc": "3.jpg",
+        "nameCoffee": "Aromistico",
+        "price": 6.99,
+        "weight": 1,
+      },
+    ],
+    "type": "home_reducer/GET_BEST_COFFEE",
+  },
+]
+`;
+
+exports[`thunk create 1`] = `
+Array [
+  Object {
+    "body": false,
+    "type": "home_reducer/SET_IS_ERROR",
+  },
+  Object {
+    "body": true,
+    "type": "home_reducer/SET_IS_LOADING",
+  },
+  Object {
+    "body": false,
+    "type": "home_reducer/SET_IS_LOADING",
+  },
+  Object {
+    "body": false,
+    "type": "home_reducer/SET_IS_ERROR",
+  },
+  Object {
+    "body": Array [
+      Object {
+        "country": "Brazil",
+        "id": 0,
+        "imgSrc": "1.jpg",
+        "nameCoffee": "Solimo",
+        "price": 10.37,
+        "weight": 1,
+      },
+      Object {
+        "country": "Columbia",
+        "id": 1,
+        "imgSrc": "2.jpg",
+        "nameCoffee": "Presto",
+        "price": 15.99,
+        "weight": 1,
+      },
+      Object {
+        "country": "Brazil",
+        "id": 3,
+        "imgSrc": "3.jpg",
+        "nameCoffee": "Aromistico",
+        "price": 6.99,
+        "weight": 1,
+      },
+    ],
+    "type": "home_reducer/GET_BEST_COFFEE",
+  },
+]
+`;

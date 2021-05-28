@@ -1,26 +1,26 @@
 import {getBestCoffeeAPI} from '../API/api';
 
-const setIsError = (bool) => ({type: SET_IS_ERROR, body: bool}),
-		setIsLoading = (bool) => ({type: SET_IS_LOADING, body: bool}),
-		setBestCoffee = (data) => ({type: GET_BEST_COFFEE, body: data});
+const setIsError = (bool) => ({type: types.SET_IS_ERROR, body: bool}),
+		setIsLoading = (bool) => ({type: types.SET_IS_LOADING, body: bool}),
+		setBestCoffee = (data) => ({type: types.GET_BEST_COFFEE, body: data});
 
-const GET_BEST_COFFEE ='home_reducer/GET_BEST_COFFEE',
-		SET_IS_LOADING ='home_reducer/SET_IS_LOADING',
-		SET_IS_ERROR ='home_reducer/SET_IS_ERROR';
+export const types = {
+	GET_BEST_COFFEE: 'home_reducer/GET_BEST_COFFEE',
+	SET_IS_LOADING: 'home_reducer/SET_IS_LOADING',
+	SET_IS_ERROR: 'home_reducer/SET_IS_ERROR',
+}
 
-
-export const getBestCoffee = () => (dispatch) =>  {
+export const getBestCoffee = (methodAPI = getBestCoffeeAPI) => (dispatch) =>  {
 	dispatch(setIsError(false))
 	dispatch(setIsLoading(true))
-	getBestCoffeeAPI()
+	return methodAPI()
 		.then(res => {
 			dispatch(setIsLoading(false))
-			if(res === 'error'){
-				dispatch(setIsError(true))
-			}else{
-				dispatch(setIsError(false))
-				dispatch(setBestCoffee(res.bestCoffee))
-			}
+			dispatch(setBestCoffee(res.bestCoffee))
+		})
+		.catch(() => {
+			dispatch(setIsLoading(false))
+			dispatch(setIsError(true))
 		})
 }
 
@@ -32,11 +32,11 @@ const initState = {
 
 export const homeReducer = (state = initState, action) => {
 	switch(action.type){
-		case GET_BEST_COFFEE:
+		case types.GET_BEST_COFFEE:
 			return {...state, bestCoffe: action.body}
-		case SET_IS_LOADING:
+		case types.SET_IS_LOADING:
 			return {...state, isLoading: action.body}
-		case SET_IS_ERROR:
+		case types.SET_IS_ERROR:
 			return {...state, isError: action.body}
 		default: 
 			return state;

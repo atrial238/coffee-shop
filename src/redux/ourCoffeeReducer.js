@@ -1,33 +1,36 @@
 import {getAllCoffeeAPI, getCoffeeByCountryAPI, getCoffeeByNameAPI} from '../API/api';
 
-const setIsError = (bool) => ({type: SET_IS_ERROR, body: bool}),
-		setIsLoading = (bool) => ({type: SET_IS_LOADING, body: bool}),
-		setBestCoffee = (data) => ({type: GET_COFFEE, body: data}),
-		setIsFirstPage = (bool) => ({type: SET_IS_FIRST_PAGE, body: bool}),
-		setIsLastPage = (bool) => ({type: SET_IS_LAST_PAGE, body: bool}),
-		setIsSearchAllCoffee = (bool) => ({type: SET_IS_SEARCH_ALL_COFFEE, body: bool}),
-		setIsSearchByName = (bool) => ({type: SET_IS_SEARCH_BY_NAME, body: bool}),
-		setIsSearchByCountry = (bool) => ({type: SET_IS_SEARCH_BY_COUNTRY, body: bool}),
-		setCountry  = (data) => ({type: SET_COUNTRY, body: data}),
-		setInput = (data) => ({type: SET_INPUT, body: data}),
-		setPageZero = () => ({type: SET_PAGE_ZERO}),
-		setIsItemFound = (bool) => ({type: SET_IS_ITEM_FOUND, body: bool});
+const setIsError = (bool) => ({type: types.SET_IS_ERROR, body: bool}),
+		setIsLoading = (bool) => ({type: types.SET_IS_LOADING, body: bool}),
+		setBestCoffee = (data) => ({type: types.GET_COFFEE, body: data}),
+		setIsFirstPage = (bool) => ({type: types.SET_IS_FIRST_PAGE, body: bool}),
+		setIsLastPage = (bool) => ({type: types.SET_IS_LAST_PAGE, body: bool}),
+		setIsSearchAllCoffee = (bool) => ({type: types.SET_IS_SEARCH_ALL_COFFEE, body: bool}),
+		setIsSearchByName = (bool) => ({type: types.SET_IS_SEARCH_BY_NAME, body: bool}),
+		setIsSearchByCountry = (bool) => ({type: types.SET_IS_SEARCH_BY_COUNTRY, body: bool}),
+		setCountry  = (data) => ({type: types.SET_COUNTRY, body: data}),
+		setNameCoffee = (data) => ({type: types.SET_NAME_COFFEE, body: data}),
+		setPageZero = () => ({type: types.SET_PAGE_ZERO}),
+		setIsItemFound = (bool) => ({type: types.SET_IS_ITEM_FOUND, body: bool});
 
-export const setPage = (counter) => ({type: SET_PAGE, body: counter});
+export const setPage = (counter) => ({type: types.SET_PAGE, body: counter});
 
-const GET_COFFEE ='ourCoffee_reducer/GET_BEST_COFFEE',
-		SET_IS_LOADING ='ourCoffee_reducer/SET_IS_LOADING',
-		SET_IS_ERROR ='ourCoffee_reducer/SET_IS_ERROR',
-		SET_PAGE = 'ourCoffee_reducer/SET_PAGE',
-		SET_IS_FIRST_PAGE = 'ourCoffee_reducer/SET_IS_FIRST_PAGE',
-		SET_IS_LAST_PAGE = 'ourCoffee_reducer/SET_IS_LAST_PAGE',
-		SET_IS_SEARCH_ALL_COFFEE = 'ourCoffee_reducer/SET_IS_SEARCH_ALL_COFFEE',
-		SET_IS_SEARCH_BY_NAME = 'ourCoffee_reducer/SET_IS_SEARCH_BY_NAME',
-		SET_IS_SEARCH_BY_COUNTRY = 'ourCoffee_reducer/SET_IS_SEARCH_BY_COUNTRY',
-		SET_COUNTRY = 'ourCoffee_reducer/SET_COUNTRY',
-		SET_INPUT = 'ourCoffee_reducer/SET_INPUT',
-		SET_PAGE_ZERO = 'ourCoffee_reducer/SET_PAGE_ZERO',
-		SET_IS_ITEM_FOUND = 'ourCoffee_reducer/SET_IS_ITEM_FOUND';
+export const types = {
+	GET_COFFEE: 'ourCoffee_reducer/GET_COFFEE',
+	SET_IS_LOADING: 'ourCoffee_reducer/SET_IS_LOADING',
+	SET_IS_ERROR: 'ourCoffee_reducer/SET_IS_ERROR',
+	SET_PAGE: 'ourCoffee_reducer/SET_PAGE',
+	SET_IS_FIRST_PAGE: 'ourCoffee_reducer/SET_IS_FIRST_PAGE',
+	SET_IS_LAST_PAGE: 'ourCoffee_reducer/SET_IS_LAST_PAGE',
+	SET_IS_SEARCH_ALL_COFFEE: 'ourCoffee_reducer/SET_IS_SEARCH_ALL_COFFEE',
+	SET_IS_SEARCH_BY_NAME: 'ourCoffee_reducer/SET_IS_SEARCH_BY_NAME',
+	SET_IS_SEARCH_BY_COUNTRY: 'ourCoffee_reducer/SET_IS_SEARCH_BY_COUNTRY',
+	SET_COUNTRY: 'ourCoffee_reducer/SET_COUNTRY',
+	SET_NAME_COFFEE: 'ourCoffee_reducer/SET_NAME_COFFEE',
+	SET_PAGE_ZERO: 'ourCoffee_reducer/SET_PAGE_ZERO',
+	SET_IS_ITEM_FOUND: 'ourCoffee_reducer/SET_IS_ITEM_FOUND',
+}
+ 
 
 // thunk creator for searching by country
 export const searchByCountry = (country) => (dispatch) =>{
@@ -46,7 +49,7 @@ export const searchByName = (input) => (dispatch) => {
 		dispatch(setIsSearchByName(true));
 		dispatch(setPageZero());
 		dispatch(setCountry(''));
-		dispatch(setInput(input));
+		dispatch(setNameCoffee(input));
 	}
 }
 
@@ -57,7 +60,7 @@ export const resetFilter = () => (dispatch) =>{
 	dispatch(setIsSearchByName(false));
 	dispatch(setPageZero());
 	dispatch(setCountry(''));
-	dispatch(setInput(''));
+	dispatch(setNameCoffee(''));
 }
 
 //thunk creator make request to a server
@@ -95,7 +98,7 @@ export const getCoffee = (page, country, input) => (dispatch, getState) => {
 		})
 }
 
-const initState = {
+export const initState = {
 	coffeePerPage: [],
 	isLoading: false,
 	isError: false,
@@ -105,38 +108,38 @@ const initState = {
 	isSearchByName: false,
 	isSearchByCountry: false,
 	countrySearch: '',
-	inputSearch: '',
+	nameCoffeeSearch: '',
 	page: 0,
 	isItemFound: false
 }
 
 export const ourCoffeeReducer = (state = initState, action) => {
 	switch(action.type){
-		case GET_COFFEE:
+		case types.GET_COFFEE:
 			return {...state, coffeePerPage: action.body};
-		case SET_IS_LOADING:
+		case types.SET_IS_LOADING:
 			return {...state, isLoading: action.body};
-		case SET_IS_ERROR:
+		case types.SET_IS_ERROR:
 			return {...state, isError: action.body};
-		case SET_PAGE:
+		case types.SET_PAGE:
 			return {...state, page: state.page + action.body};
-		case SET_IS_FIRST_PAGE:
+		case types.SET_IS_FIRST_PAGE:
 			return {...state, isFirstPage: action.body};
-		case SET_IS_LAST_PAGE:
+		case types.SET_IS_LAST_PAGE:
 			return {...state, isLastPage: action.body};
-		case SET_IS_SEARCH_ALL_COFFEE:
+		case types.SET_IS_SEARCH_ALL_COFFEE:
 			return {...state, isSearchAllCoffee: action.body};
-		case SET_IS_SEARCH_BY_NAME:
+		case types.SET_IS_SEARCH_BY_NAME:
 			return {...state, isSearchByName: action.body};
-		case SET_IS_SEARCH_BY_COUNTRY:
+		case types.SET_IS_SEARCH_BY_COUNTRY:
 			return {...state, isSearchByCountry: action.body};
-		case SET_COUNTRY:
+		case types.SET_COUNTRY:
 			return {...state, countrySearch: action.body};
-		case SET_INPUT: 
-			return {...state, inputSearch: action.body};
-		case SET_IS_ITEM_FOUND:
+		case types.SET_NAME_COFFEE: 
+			return {...state, nameCoffeeSearch: action.body};
+		case types.SET_IS_ITEM_FOUND:
 			return {...state, isItemFound: action.body};
-		case SET_PAGE_ZERO:
+		case types.SET_PAGE_ZERO:
 			return {...state, page: 0};
 		default: 
 			return state;

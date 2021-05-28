@@ -1,32 +1,31 @@
 import {getSpecificCoffeeAPI} from '../API/api';
 
-const setIsError = (bool) => ({type: SET_IS_ERROR, body: bool}),
-		setIsLoading = (bool) => ({type: SET_IS_LOADING, body: bool}),
-		setBestCoffee = (data) => ({type: GET_SPECIFIC_COFFEE, body: data}),
-		setNotFound = (bool) => ({type: SET_NOT_FOUND, body: bool});
+const setIsError = (bool) => ({type: types.SET_IS_ERROR, body: bool}),
+		setIsLoading = (bool) => ({type: types.SET_IS_LOADING, body: bool}),
+		setBestCoffee = (data) => ({type: types.GET_SPECIFIC_COFFEE, body: data}),
+		setNotFound = (bool) => ({type: types.SET_NOT_FOUND, body: bool});
 
-const GET_SPECIFIC_COFFEE ='aboutCoffee_reducer/GET_BEST_COFFEE',
-		SET_IS_LOADING ='aboutCoffee_reducer/SET_IS_LOADING',
-		SET_IS_ERROR ='aboutCoffee_reducer/SET_IS_ERROR',
-		SET_NOT_FOUND = 'aboutCoffee_reducer/SET_NOT_FOUND';
+export const types ={
+	GET_SPECIFIC_COFFEE: 'aboutCoffee_reducer/GET_BEST_COFFEE',
+	SET_IS_LOADING: 'aboutCoffee_reducer/SET_IS_LOADING',
+	SET_IS_ERROR: 'aboutCoffee_reducer/SET_IS_ERROR',
+	SET_NOT_FOUND: 'aboutCoffee_reducer/SET_NOT_FOUND',} 
 
 
-export const getSpecificCoffee = (id) => (dispatch) => {
+export const getSpecificCoffee = (id, methodAPI = getSpecificCoffeeAPI) => (dispatch) => {
 	dispatch(setNotFound(false))
 	dispatch(setIsError(false))
 	dispatch(setIsLoading(true))
-	getSpecificCoffeeAPI(id)
+	return methodAPI(id)
 		.then(res => {
 			dispatch(setIsLoading(false))
-			if(res === 'error'){
-				dispatch(setIsError(true))
-			}else if(!res.specificCoffee){
+			if(!res.specificCoffee){
 				dispatch(setNotFound(true))
 			}else{
-				dispatch(setIsError(false))
 				dispatch(setBestCoffee(res.specificCoffee))
 			}
 		})
+		.catch(() => dispatch(setIsError(true)))
 }
 
 const initState = {
@@ -38,14 +37,14 @@ const initState = {
 
 export const aboutCoffeeReducer = (state = initState, action) => {
 	switch(action.type){
-		case GET_SPECIFIC_COFFEE:
+		case types.GET_SPECIFIC_COFFEE:
 			return {...state, specificCoffee: action.body};
-		case SET_IS_LOADING:
+		case types.SET_IS_LOADING:
 			return {...state, isLoading: action.body};
-		case SET_IS_ERROR:
+		case types.SET_IS_ERROR:
 			return {...state, isError: action.body};
-		case SET_NOT_FOUND:
-			return {...state, notFound: action.body}
+		case types.SET_NOT_FOUND:
+			return {...state, notFound: action.body} 
 		default: 
 			return state;
 	}

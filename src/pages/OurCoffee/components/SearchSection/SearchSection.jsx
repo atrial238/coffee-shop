@@ -10,9 +10,9 @@ import {wrapper_search_panel, wrapper, wrapper_grid, paginator, result_search, r
 
 const SearchSection = ({coffeePerPage, getCoffee, page, setPage,
 	 isLoading, isError, isLastPage, isFirstPage, isSearchByName, resetFilter,
-	 searchByCountry, countrySearch, inputSearch, searchByName, isItemFound}) => {
+	 searchByCountry, countrySearch, nameCoffeeSearch, searchByName, isItemFound}) => {
 
-	useEffect(() => getCoffee(page, countrySearch, inputSearch), [page, getCoffee, countrySearch, inputSearch]);
+	useEffect(() => getCoffee(page, countrySearch, nameCoffeeSearch), [page, getCoffee, countrySearch, nameCoffeeSearch]);
 
 	const propsSearchPanel = {searchByCountry, countrySearch, isLoading, searchByName};
 	const propsPaginator = {setPage, isLoading, isLastPage, isFirstPage};
@@ -31,10 +31,10 @@ const SearchSection = ({coffeePerPage, getCoffee, page, setPage,
 					<button className={reset} onClick={resetFilter} disabled={isLoading}>Reset filter</button>
 				</div>
 
-				{isSearchByName && <div className={result_search}>Search results for: {`"${inputSearch}"`}</div>}
+				{isSearchByName && <div className={result_search}>Search results for: {`"${nameCoffeeSearch}"`}</div>}
 				{(isLoading && <Preloader/>)
 				||(isError && <div className='error'>Oops! Something went wrong</div>)
-				|| (isItemFound && <div>No matches for: {inputSearch}</div>)
+				|| (isItemFound && <div>No matches for: {nameCoffeeSearch}</div>)
 				|| <GridContainer coffeePerPage={coffeePerPage}/>}
 
 				</div>
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => ({
 	isFirstPage: state.ourCoffee.isFirstPage,
 	isLastPage: state.ourCoffee.isLastPage,
 	countrySearch: state.ourCoffee.countrySearch,
-	inputSearch: state.ourCoffee.inputSearch,
+	nameCoffeeSearch: state.ourCoffee.nameCoffeeSearch,
 	isSearchByName: state.ourCoffee.isSearchByName,
 	isItemFound: state.ourCoffee.isItemFound
 })
@@ -76,7 +76,7 @@ SearchSection.propTypes = {
 	isFirstPage: PropTypes.bool,
 	searchByCountry: PropTypes.func,
 	countrySearch: PropTypes.string,
-	inputSearch: PropTypes.string,
+	nameCoffeeSearch: PropTypes.string,
 	searchByName: PropTypes.func,
 	isSearchByName: PropTypes.bool,
 	isItemFound: PropTypes.bool

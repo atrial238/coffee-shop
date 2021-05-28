@@ -18,7 +18,7 @@ function App() {
 		<Router>
 			<div className="App">
 				<ErrorBoundary>
-					<Suspense fallback={PreloaderPage}>
+					<Suspense fallback={<PreloaderPage/>}>
 						<Switch>
 							<Route exact path={['/', '/home']} component={Home}/>
 							<Route exact path='/our_coffee' component={OurCoffee}/>

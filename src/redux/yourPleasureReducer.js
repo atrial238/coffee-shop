@@ -1,26 +1,27 @@
 import {getCoffeePleasureAPI} from '../API/api';
 
-const setIsError = (bool) => ({type: SET_IS_ERROR, body: bool}),
-		setIsLoading = (bool) => ({type: SET_IS_LOADING, body: bool}),
-		setPleasureCoffee = (data) => ({type: GET_PLEASURE_COFFEE, body: data});
+const setIsError = (bool) => ({type: types.SET_IS_ERROR, body: bool}),
+		setIsLoading = (bool) => ({type: types.SET_IS_LOADING, body: bool}),
+		setPleasureCoffee = (data) => ({type: types.GET_PLEASURE_COFFEE, body: data});
 
-const GET_PLEASURE_COFFEE ='home_reducer/GET_PLEASURE_COFFEE',
-		SET_IS_LOADING ='home_reducer/SET_IS_LOADING',
-		SET_IS_ERROR ='home_reducer/SET_IS_ERROR';
+export const types = {
+	GET_PLEASURE_COFFEE: 'home_reducer/GET_PLEASURE_COFFEE',
+	SET_IS_LOADING: 'home_reducer/SET_IS_LOADING',
+	SET_IS_ERROR: 'home_reducer/SET_IS_ERROR',
+} 
 
 
-export const getCoffeePleasure = () => (dispatch) =>  {
+export const getCoffeePleasure = (methodAPI = getCoffeePleasureAPI) => (dispatch) =>  {
 	dispatch(setIsError(false))
 	dispatch(setIsLoading(true))
-	getCoffeePleasureAPI()
+	return methodAPI()
 		.then(res => {
 			dispatch(setIsLoading(false))
-			if(res === 'error'){
-				dispatch(setIsError(true))
-			}else{
-				dispatch(setIsError(false))
-				dispatch(setPleasureCoffee(res.coffeePleasure))
-			}
+			dispatch(setPleasureCoffee(res.coffeePleasure))
+		})
+		.catch(() => {
+			dispatch(setIsLoading(false))
+			dispatch(setIsError(true))
 		})
 }
 
@@ -32,11 +33,11 @@ const initState = {
 
 export const yourPleasureReducer = (state = initState, action) => {
 	switch(action.type){
-		case GET_PLEASURE_COFFEE:
+		case types.GET_PLEASURE_COFFEE:
 			return {...state, coffeePleasure: action.body}
-		case SET_IS_LOADING:
+		case types.SET_IS_LOADING:
 			return {...state, isLoading: action.body}
-		case SET_IS_ERROR:
+		case types.SET_IS_ERROR:
 			return {...state, isError: action.body}
 		default: 
 			return state;

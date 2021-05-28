@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`yourPleasureReducer shoud return initial state 1`] = `
+Object {
+  "coffeePleasure": Array [],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`yourPleasureReducer shoud set bestCoffee array 1`] = `
+Object {
+  "coffeePleasure": Array [
+    Object {
+      "coffeeone": "one",
+    },
+    Object {
+      "coffeeTwo": "two",
+    },
+  ],
+  "isError": false,
+  "isLoading": false,
+}
+`;
+
+exports[`yourPleasureReducer shoud set isError true 1`] = `
+Object {
+  "coffeePleasure": Array [],
+  "isError": true,
+  "isLoading": false,
+}
+`;
+
+exports[`yourPleasureReducer shoud set isLoading true 1`] = `
+Object {
+  "coffeePleasure": Array [],
+  "isError": false,
+  "isLoading": true,
+}
+`;
