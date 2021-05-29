@@ -18,6 +18,9 @@
 			&:hover {
 				color: #bb9c66;
 			}
+			@media (hover: none) and (pointer: coarse) {
+				color: white;
+			}
 			&.active {
 				color: #f0c884;
 			}
@@ -31,6 +34,9 @@
 			color: black;
 			&:hover {
 				color: #bb9c66;
+			}
+			@media (hover: none) and (pointer: coarse) {
+				color: black;
 			}
 			&.active {
 				color: #bb9c66;

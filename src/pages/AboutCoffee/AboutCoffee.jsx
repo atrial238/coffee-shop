@@ -10,7 +10,6 @@ const AboutCoffee = () => {
 			<ErrorBoundary><AboutSection/></ErrorBoundary>
 			<ErrorBoundary><Footer/></ErrorBoundary>
 		</div>
-
 	)
 }
 export default AboutCoffee;

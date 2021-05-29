@@ -1,10 +1,9 @@
 // import { Link } from 'react-router-dom';
 import {wrapper} from './Button.module.scss';
-import { Link } from 'react-scroll'
 
-const Button = () => {
+const Button = ({executeScroll}) => {
 	return (
-		<Link to='about' smooth={true} duration={700}  className={wrapper}>More</Link>
+		<button className={wrapper} onClick={executeScroll}>More</button>
 	)
 }
 export default Button;

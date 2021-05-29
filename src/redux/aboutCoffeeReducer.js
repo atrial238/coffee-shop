@@ -5,12 +5,11 @@ const setIsError = (bool) => ({type: types.SET_IS_ERROR, body: bool}),
 		setBestCoffee = (data) => ({type: types.GET_SPECIFIC_COFFEE, body: data}),
 		setNotFound = (bool) => ({type: types.SET_NOT_FOUND, body: bool});
 
-export const types ={
+export const types = {
 	GET_SPECIFIC_COFFEE: 'aboutCoffee_reducer/GET_BEST_COFFEE',
 	SET_IS_LOADING: 'aboutCoffee_reducer/SET_IS_LOADING',
 	SET_IS_ERROR: 'aboutCoffee_reducer/SET_IS_ERROR',
 	SET_NOT_FOUND: 'aboutCoffee_reducer/SET_NOT_FOUND',} 
-
 
 export const getSpecificCoffee = (id, methodAPI = getSpecificCoffeeAPI) => (dispatch) => {
 	dispatch(setNotFound(false))

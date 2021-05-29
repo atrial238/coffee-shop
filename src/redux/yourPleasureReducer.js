@@ -10,7 +10,6 @@ export const types = {
 	SET_IS_ERROR: 'home_reducer/SET_IS_ERROR',
 } 
 
-
 export const getCoffeePleasure = (methodAPI = getCoffeePleasureAPI) => (dispatch) =>  {
 	dispatch(setIsError(false))
 	dispatch(setIsLoading(true))

@@ -6,13 +6,12 @@ import imageSrcAbout from '../../assets/img/our_coffee/1.jpg';
 const OurCoffee = () => {
 	
 	return (
-		<div>
+		<div style={{position:'relative', zIndex: '5'}}>
 			<ErrorBoundary><HeaderOurCoffee/></ErrorBoundary>
 			<ErrorBoundary><About imageSrcAbout={imageSrcAbout} subtitle='About our beans'/></ErrorBoundary>
 			<ErrorBoundary><SearchSection/></ErrorBoundary>
 			<ErrorBoundary><Footer/></ErrorBoundary>
 		</div>
-
 	)
 }
 export default OurCoffee;

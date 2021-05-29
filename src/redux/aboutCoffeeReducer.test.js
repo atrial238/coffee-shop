@@ -12,9 +12,9 @@ const mockServiceCreator = (body, succeeds = true) => () =>
 describe('aboutCoffeeReducer', () => {
 	const initState = {
 		specificCoffee: {},
-	isLoading: false,
-	isError: false,
-	notFound: false
+		isLoading: false,
+		isError: false,
+		notFound: false
 	}
 
 	test('shoud return initial state', () => {

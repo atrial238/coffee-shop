@@ -1,4 +1,3 @@
-
 const Preloader = ({color= '#f0c884'}) => {
 	return (
 		<div>

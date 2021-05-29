@@ -1,12 +1,10 @@
 import { Divider } from '../../../../components';
 import {wrapper, container, divider, text} from './AboutUsSection.module.scss';
-import {  Element } from 'react-scroll'
 
-const AboutUsSection = () => {
+const AboutUsSection = ({scrollToRef}) => {
 
 	return (
-		<section className={wrapper} >
-			<Element name='about'/>
+		<section className={wrapper} ref={scrollToRef}>
 			<div className={container}>
 				<h2 className="subtitle">About Us</h2>
 				<div className={divider}><Divider color='black' /></div>

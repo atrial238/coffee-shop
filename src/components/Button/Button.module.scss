@@ -13,7 +13,13 @@
 	@include adaptiv-property('padding-right', 42, 20);
 	transition: all .4s;
 	cursor: pointer;
+	background: none;
 	&:hover {
 		background: #f3ca83;
 	}
+	@media (hover: none) and (pointer: coarse) {
+		&:hover {
+			background: none;
+		}
+  }
 }

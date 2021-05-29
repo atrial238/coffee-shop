@@ -1,6 +1,6 @@
 import {bestCoffee, allCoffee, coffeePleasure} from '../API/fakeData/fakeData';
 
-//emulation of a request to the server
+//simulate of a request to the server
 const sleep = (data) => {
 	return new Promise((resolve, rej) => {
 		setTimeout(() => {

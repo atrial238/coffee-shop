@@ -4,8 +4,6 @@ import thunk from 'redux-thunk';
  
 const mockStore = configureMockStore([thunk]);
 
-
-
 describe('ourCoffeeReducer', () => {
 	
 	test('should return initial state', () => {
